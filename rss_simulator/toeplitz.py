@@ -1,12 +1,9 @@
-from __future__ import print_function
 
 from rss_simulator.hash_key import HashKey
 
-# TODO: Add Protocol to Toeplitz Calculation
-
 class Toeplitz(object):
-    def __init__(self):
-        self.__hash_key = HashKey.random_hash_key()
+    def __init__(self, hash_key=None):
+        self.__hash_key = hash_key if hash_key else HashKey.random_hash_key()
 
     @property
     def hash_key(self):
@@ -16,9 +13,8 @@ class Toeplitz(object):
     def hash_key(self, hash_key):
         self.__hash_key=hash_key
 
-    def print_key(self):
-        hash_str = ":".join(hex(_hex) for _hex in self.__hash_key)
-        print(hash_str)
+    def hash_key_str(self):
+        return ":".join("{:x}".format(_hex) for _hex in self.__hash_key)
 
     def compute_hash(self, src_ip, dst_ip, src_port, dst_port):
         key = list(self.__hash_key)
@@ -52,6 +48,7 @@ class Toeplitz(object):
         return int(ip_num[0]) << 24 | int(ip_num[1]) << 16 | int(ip_num[2]) << 8 | int(ip_num[3])
 
     def __prepare_input_bytes(self, src_ip, dst_ip, src_port, dst_port):
+        # See input preparation reference in FlowGenerator.e file line 3920
         src_ip_num = self.__ip_to_int(src_ip)
         dst_ip_num = self.__ip_to_int(dst_ip)
         input_bytes = []
