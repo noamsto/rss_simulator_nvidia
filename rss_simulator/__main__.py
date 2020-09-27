@@ -1,5 +1,4 @@
-from rss_simulator.main import main
+"""RSS simulator package __main__ module."""
+from rss_simulator import main
 
-
-if __name__ == "__main__":
-    main()
+main()
