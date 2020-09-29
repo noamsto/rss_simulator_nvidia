@@ -14,7 +14,9 @@ def parse_args():
         argparse.Namespace : Object containing parsed arguments.
 
     """
-    parser = ArgumentParser()
+    parser = ArgumentParser(
+        description=("Simulate Nvidia's NIC RSS queue's distribution for Toeplitz hash function.")
+    )
     parser.add_argument(
         "--key-file",
         metavar="PATH",
@@ -60,7 +62,3 @@ def main():
         rss_sim.write_statistics(args.csv)
     else:
         rss_sim.show_histogram()
-
-
-if __name__ == "__main__":
-    main()
