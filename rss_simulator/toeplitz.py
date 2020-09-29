@@ -41,7 +41,7 @@ class Toeplitz(object):
             str: String representation of hash-key.
 
         """
-        return ":".join("{:x}".format(_hex) for _hex in self.__hash_key)
+        return ":".join("{:02x}".format(_hex) for _hex in self.__hash_key)
 
     def compute_hash(self, src_ip, dst_ip, src_port, dst_port):
         """Compute hash-result using Toeplitz method.
