@@ -1,0 +1,12 @@
+.gitattributes export-ignore
+create_package.sh export-ignore
+dist
+docs
+example_input
+install_rss_simulator.sh
+requirements_p2.txt export-ignore
+requirements_p3.txt export-ignore
+res export-ignore
+rss_simulator
+setup.py export-ignore
+
