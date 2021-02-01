@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="rss-simulator-nvidia",
-    version="0.0.1",
+    version="0.0.2",
     author="Noam Stolero",
     author_email="noams@nvidia.com",
     license="MIT",
