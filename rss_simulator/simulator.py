@@ -3,7 +3,15 @@ from __future__ import print_function
 import warnings
 
 import matplotlib.cbook
-import matplotlib.pyplot as plt
+try:
+    import matplotlib.pyplot as plt
+except ImportError as i_err:
+    if "Tkinter" in str(i_err):
+        print("Error: Tkinter is not installed, please install using system package manager. i.e.:\n"
+              "Redhat: sudo yum install python2/3-tkinter\n"
+              "Ubuntu: sudo apt install python2/3-tk.")
+        exit(1)
+    raise i_err
 import pandas as pd
 from matplotlib.ticker import MaxNLocator
 from pandas.errors import ParserError as pd_ParserError
